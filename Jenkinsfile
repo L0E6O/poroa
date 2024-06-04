@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_IMAGE = "."
+    DOCKER_IMAGE = "ubuntu"
     GITHUB_REPO = "https://github.com/L0E6O/poroa.git"
   }
 
