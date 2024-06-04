@@ -2,9 +2,8 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_IMAGE = "mio-ubuntu-test"
-    DOCKER_TAG = "latest"
-    GITHUB_REPO = "https://github.com/tuouser/tuarepo.git"
+    DOCKER_IMAGE = "."
+    GITHUB_REPO = "https://github.com/L0E6O/poroa.git"
   }
 
   stages {
@@ -18,7 +17,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         script {
-          docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+          docker.build("${DOCKER_IMAGE}")
         }
       }
     }
@@ -26,7 +25,7 @@ pipeline {
     stage('Run Container') {
       steps {
         script {
-          docker.image("${DOCKER_IMAGE}:${DOCKER_TAG}").run()
+          docker.image("${DOCKER_IMAGE}").run()
         }
       }
     }
@@ -34,7 +33,7 @@ pipeline {
     stage('Clean Up') {
       steps {
         script {
-          docker.image("${DOCKER_IMAGE}:${DOCKER_TAG}").remove()
+          docker.image("${DOCKER_IMAGE}").remove()
         }
       }
     }
