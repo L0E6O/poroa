@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     sh '''#!/bin/zsh
-                    docker.image("${DOCKER_IMAGE}").run()'''
+                    /usr/local/bin/docker run docker'''
                 }
             }
         }
@@ -38,7 +38,7 @@ pipeline {
         stage('Clean Up') {
             steps {
                 script {
-                    docker.image("${DOCKER_IMAGE}").remove()
+                    docker.image("docker").remove()
                 }
             }
         }
