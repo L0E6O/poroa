@@ -29,7 +29,8 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                    docker.image("${DOCKER_IMAGE}").run()
+                    sh '''#!/bin/zsh
+                    docker.image("${DOCKER_IMAGE}").run()'''
                 }
             }
         }
