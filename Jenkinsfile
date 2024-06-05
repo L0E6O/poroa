@@ -21,6 +21,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+                    export PATH=$PATH:/usr/local/bin
+                    export SHELL=/bin/zsh
                     docker.build('/Users/leo/Desktop/jenkins/Dockerfile')
                 }
             }
