@@ -1,8 +1,8 @@
 pipeline {
-    agent { 
+    agent {
         docker {
-           label "docker" 
-            image "docker"
+            label 'Docker'
+            image 'docker'
         }
     }
 
